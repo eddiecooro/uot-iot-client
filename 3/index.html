@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="main.css" />
+    <script src="math.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="registration">
+      <p>{{ jwt }}</p>
+      <form v-on:submit="handleSubmit">
+        <label for="username">Username:</label>
+        <input v-model="username" name="username" type="text" />
+
+        <label for="email">Email:</label>
+        <input v-model="email" name="email" type="text" />
+
+        <label for="password">Password:</label>
+        <input v-model="password" name="password" type="password" />
+
+        <input type="submit" />
+      </form>
+    </div>
+    <div id="main">
+      <div v-if="showBox" v-bind:class="className"></div>
+      <div>
+        <div v-for="todo in todos">
+          <span v-bind:class="{ lineThrough: todo.done }">{{ todo.name }}</span>
+        </div>
+      </div>
+      <p v-on:click="handleClick">{{ number }}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
